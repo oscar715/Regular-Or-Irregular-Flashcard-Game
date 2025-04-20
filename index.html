@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Regular/Irregular Flashcard App</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<!-- The font used for the flashcard app. You can change this to any other font. -->
+		<link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap" rel="stylesheet" />
+		<!-- This line loads the CSS file containing the styles for the flashcard app. It can be modified to change the appearance of the app. -->
+		<link rel="stylesheet" href="./index.css" />
+	</head>
+	<body>
+		<!-- These hidden checkboxes store the toggling state of the entries panel and the flashcard. Don't remove them. -->
+		<input type="checkbox" id="toggle-entries-checkbox" hidden />
+		<input type="checkbox" id="flip-card-checkbox" hidden />
+		<main>
+			<!-- The header includes a button to show/hide all flashcard entries. -->
+			<h1 id="header">
+				<label for="toggle-entries-checkbox" id="toggle-entries" title="Show All Entries">|||</label>
+				Regular/Irregular Flashcard App
+			</h1>
+			<!-- This section displays a table of all cards for quick access. -->
+			<section id="entries">
+				<div id="entries-inner">
+					<table>
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Word</th>
+								<th>Due Date</th>
+							</tr>
+						</thead>
+						<tbody id="entries-body"></tbody>
+					</table>
+				</div>
+			</section>
+			<!-- The main flashcard section. Clicking flips between front and back. -->
+			<section id="flashcard">
+				<label for="flip-card-checkbox" id="card-inner">										
+					<div class="card card-front">
+						<p class="rules">✨=Regular noun: ✅ standard plural rules; 💣= Irregular noun: ❌ standard plural rules</p>
+						<h2 id="front-sentence"></h2>
+						<div class="image-container">
+							<img id="front-image" />
+							<img id="front-image2" />
+						</div>
+						<div class="status">
+							<div id="regular-box" class="status-box">✨</div>
+							<div id="irregular-box" class="status-box">💣</div>				
+						</div>						
+					</div>
+					<div class="card card-back">
+						<p class="rules">✨=Regular noun: ✅ standard plural rules; 💣= Irregular noun: ❌ standard plural rules</p>
+						
+						
+						<div class="word-audio-container">
+							<h2 id="back-word"></h2> <!-- word -->
+        					<audio id="back-audio" controls></audio> <!-- audio -->
+						</div>
+						<p>
+							<div class="hint-container">
+								<span id="back-sentence"></span>
+								<div class="hint-box">
+									<div class="arrow"></div>
+									<span id="hint-text"></span>
+								</div>
+							</div>											
+						</p>
+						<div class="image-container-back">
+							<img id="back-image" />
+							<img id="back-image2" /> 				
+						</div>
+						<div class="definition-box">	
+							<span id="back-definition"></span>
+						</div>
+						
+						
+						<div class="status">
+							<div id="regular-box-back" class="status-box">✨</div>
+							<div id="irregular-box-back" class="status-box">💣</div>
+						</div>
+						
+					</div>
+					
+				</label>
+			</section>
+			<!-- Navigation and learning progress buttons for the current flashcard. -->
+			<div id="actions">
+				<button id="btn-back">‹ Back</button>
+				<div id="btns-progress">
+					<button id="btn-again">😵 Again</button>
+					<button id="btn-good">🙂 Good</button>
+					<button id="btn-easy">🤩 Easy</button>
+				</div>
+				<button id="btn-skip">Skip ›</button>
+			</div>
+		</main>
+		<!-- This line imports the JavaScript file containing the logic for the flashcard app. It can be modified to add functionality to the app. -->
+		<script src="./index.js" type="module"></script>
+	</body>
+</html>
